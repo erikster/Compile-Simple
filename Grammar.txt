@@ -2,4 +2,7 @@
 
 value       =~ /[0-9]+/
 operator    =~ /\+-*\//
-expression  =~ value | "(" expression operator expression ")"
+openparens  =~ "("
+closeparens =~ ")"
+expression  =~ value | openparens expression operator expression closeparens
+

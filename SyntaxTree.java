@@ -1,5 +1,11 @@
-
+/**
+ *  SyntaxTree which is evaluated to get a value
+ *
+ */
 
 public class SyntaxTree {
-    private SyntaxNode root;
+    public SyntaxNode root;
+    
+    public SyntaxTree() {
+    }
 }
