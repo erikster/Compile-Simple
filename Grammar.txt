@@ -1,0 +1,5 @@
+# Grammar! This is the format by which the input files must abide.
+
+value       =~ /[0-9]+/
+operator    =~ /\+-*\//
+expression  =~ value | "(" expression operator expression ")"
