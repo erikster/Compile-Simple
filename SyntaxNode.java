@@ -21,7 +21,3 @@ public class SyntaxNode {
         return value;
     }
 }
-
-public enum NodeType {
-    VALUE, OPERATOR, EXPRESSION
-}
