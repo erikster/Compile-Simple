@@ -23,19 +23,19 @@ public class Tokenizer {
         for (int counter = 0; counter < arr.length; ) {
             String str = String.valueOf(arr[counter]);
             if (valuePattern.matcher(str).matches()) {
-                StringBuilder sb = str;
-                while(valuePattern.matcher(arr[counter + 1] + "")) {
+                StringBuilder sb = new StringBuilder(str);
+                while(valuePattern.matcher(arr[counter + 1] + "").matches()) {
                     counter++;
                     sb.append(arr[counter]);
                 }
                 tokens.add(new Token(TokenType.VALUE, sb.toString()));
-            } else if (operPattern.matcher(str)) {
+            } else if (operPattern.matcher(str).matches()) {
             
-            } else if (openparensPattern.matcher(str)) {
+            } else if (openparensPattern.matcher(str).matches()) {
             
-            } else if (closeparensPattern.matcher(str)) {
+            } else if (closeparensPattern.matcher(str).matches()) {
             
-            } else if (whitespacePattern.matcher(str)) {
+            } else if (whitespacePattern.matcher(str).matches()) {
             
             } else {
                 System.out.println("Error while tokenizing: Unexpected character " + str);
