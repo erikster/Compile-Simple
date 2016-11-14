@@ -24,23 +24,29 @@ public class Tokenizer {
             String str = String.valueOf(arr[counter]);
             if (valuePattern.matcher(str).matches()) {
                 StringBuilder sb = new StringBuilder(str);
+                // numbers can be more than one digit
                 while(valuePattern.matcher(arr[counter + 1] + "").matches()) {
                     counter++;
                     sb.append(arr[counter]);
                 }
                 tokens.add(new Token(TokenType.VALUE, sb.toString()));
             } else if (operPattern.matcher(str).matches()) {
-            
+                tokens.add(new Token(TokenType.OPERATOR, str));
             } else if (openparensPattern.matcher(str).matches()) {
-            
+                tokens.add(new Token(TokenType.OPENPARENS, str));
             } else if (closeparensPattern.matcher(str).matches()) {
-            
+                tokens.add(new Token(TokenType.CLOSEPARENS, str));
             } else if (whitespacePattern.matcher(str).matches()) {
-            
+                // ignore whitespace
             } else {
-                System.out.println("Error while tokenizing: Unexpected character " + str);
+                System.out.println("Error while tokenizing: Unexpected character: '" + str + "'");
                 System.exit(-1);
             }
+            counter++;
         }
+    }
+    
+    public Queue<Token> getTokens() {
+        return this.tokens;
     }
 }
